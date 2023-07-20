@@ -21,23 +21,17 @@ const Post = new mongoose.model("Post", postSchema);
 app.get("/posts", (req, res)=>{
     Post.find({})
     .then((foundPosts)=>{
-        console.log({array: foundPosts});
         res.json({array: foundPosts})
     })
 })
 
 app.post("/posts", (req, res)=>{
-    console.log(req.body);
     const post = new Post({
         title : req.body.postTitle,
         body : req.body.postBody
     });
     post.save();
     res.redirect("http://localhost:3000/");
-});
-
-app.get("/posts/:id", (req, res)=>{
-    console.log(req.params.id);
 });
 
 app.listen(5000, (req, res)=>{

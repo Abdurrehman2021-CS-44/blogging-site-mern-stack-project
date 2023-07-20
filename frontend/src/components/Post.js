@@ -1,18 +1,21 @@
 import React, { useState } from "react";
-import ShowPost from "./ShowPost";
 
 function Post(props){
 
     const [change, setChange] = useState(false);
 
-    function handleClick(){
-        // <ShowPost id={props.id}/>
+    function handleClick(e){
+        setChange((prevValue)=>{
+            return !prevValue;
+        });
+        e.preventDefault();
     }
 
     return (
         <div>
             <h1>{props.postTitle}</h1>
-            <p>{props.postBody.substring(0, 100)}... <a href="#" onClick={handleClick}>Read more</a> </p>
+            {/* eslint-disable-next-line */}
+            <p>{props.postBody.substring(0, change ? props.postBody.length : 100)}<a href="" onClick={handleClick}>{change ? "less" : "... Read more"}</a> </p>
         </div>
     )
 }

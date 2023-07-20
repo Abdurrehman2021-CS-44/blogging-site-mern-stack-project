@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Post from "./Post";
-import Axios from "axios";
 
 function Home(props){
     const [dbData, setDbData] = useState([]);
 
-    const getData = async()=>{
+    const getData = async() => {
         const response = await fetch("http://localhost:5000/posts");
         const data = await response.json();
         setDbData(data.array);

@@ -1,5 +1,5 @@
-body{
-    position: relative;
+#root {
+    margin-bottom: 120px;
 }
 
 .container-fluid {
@@ -22,11 +22,11 @@ body{
 .footer-padding {
     position: fixed;
     bottom: 0;
+    width: 100%;
 }
 
 .footer {
 	text-align: center;
-	width: 100%;
 	background-color: #1abc9c;
     padding: 10px 0;
 }
